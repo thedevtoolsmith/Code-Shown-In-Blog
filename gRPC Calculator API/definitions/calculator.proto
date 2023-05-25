@@ -1,0 +1,27 @@
+syntax="proto3";
+
+option go_package = ".";
+
+enum Operations{
+    ADDITION = 0;
+    SUBTRACTION = 1;
+    MULTIPLICATION = 2;
+    DIVISION = 3;
+}
+
+message Input {
+    int32 operand1 = 1;
+    int32 operand2 = 2;
+    Operations operation = 3;
+}
+
+message Output {
+    int32 operand1 = 1;
+    int32 operand2 = 2;
+    Operations operation = 3;
+    int64 result = 4;
+}
+
+service Calculator {
+    rpc Calculate(Input) returns (Output) {}
+}

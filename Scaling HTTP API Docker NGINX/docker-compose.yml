@@ -3,6 +3,7 @@ version: '3.4'
 services:
   simpleapi:
     image: simpleapi
+    restart: always
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -12,7 +13,7 @@ services:
     networks:
       - simpleapi-network
     ports:
-      - "11011"
+      - "23480"
 
   simpleapi-nginx:
     image: nginx:latest
